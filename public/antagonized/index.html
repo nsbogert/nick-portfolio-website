@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play Antagonized: Ants Invade, a browser platformer by Nick Bogert. Jump, dodge ants, and explore. No download needed.">
+    <title>Antagonized: Ants Invade — A Browser Game by Nick Bogert</title>
+    <link rel="canonical" href="https://nickbogert.com/antagonized/">
+    <meta name="author" content="Nick Bogert">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a class="back-link" href="/#antagonized">← Back to Nick’s playground</a>
+    <div id="game-container">
+        <h1>Antagonized: Ants Invade</h1>
+        <canvas id="gameCanvas" width="800" height="600" tabindex="0" aria-label="Antagonized game. Press Enter to start, arrow keys to move, Space to jump, and Shift for action.">Your browser needs canvas support to play Antagonized.</canvas>
+        <p class="desktop-instructions">Enter to start · Arrow keys to move · Space to jump · Shift for action</p>
+        
+        <div id="mobile-controls">
+            <div class="d-pad">
+                <button id="btn-up" aria-label="Move up" class="d-btn" data-key="ArrowUp">▲</button>
+                <button id="btn-left" aria-label="Move left" class="d-btn" data-key="ArrowLeft">◀</button>
+                <button id="btn-right" aria-label="Move right" class="d-btn" data-key="ArrowRight">▶</button>
+                <button id="btn-down" aria-label="Move down" class="d-btn" data-key="ArrowDown">▼</button>
+            </div>
+            <div class="center-controls">
+                <div class="start-select-group">
+                    <button id="btn-start" aria-label="Start game" class="start-btn" data-key="Enter">START</button>
+                    <div class="label">START</div>
+                </div>
+            </div>
+            <div class="action-btns">
+                <div class="btn-wrapper">
+                    <button id="btn-b" aria-label="Action" class="action-btn" data-key="Shift">B</button>
+                    <div class="label">Action</div>
+                </div>
+                <div class="btn-wrapper">
+                    <button id="btn-a" aria-label="Jump" class="action-btn" data-key="Space">A</button>
+                    <div class="label">Jump</div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+body {
+    background-color: #333;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column; /* Allow vertical stacking */
+}
+
+#game-container {
+    text-align: center;
+    max-width: 100%;
+}
+
+canvas {
+    background-color: #87CEEB; /* Sky blue */
+    border: 4px solid #fff;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mobile Controls - Gameboy Style */
+#mobile-controls {
+    width: 800px;
+    max-width: 100%;
+    margin: 20px auto 0;
+    padding: 30px 40px;
+    background-color: #c0c0c0; /* Gameboy Grey */
+    border-radius: 10px 10px 50px 10px;
+    box-shadow: inset -5px -5px 20px rgba(0,0,0,0.2), 0 10px 20px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align to bottom to keep start button low */
+    padding-bottom: 40px; /* Space for labels */
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    position: relative; /* For absolute positioning of start if needed */
+}
+
+/* D-Pad */
+.d-pad {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+}
+.d-btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border: none;
+    color: #555;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    touch-action: manipulation;
+    z-index: 2;
+}
+.d-btn:active, .d-btn.active {
+    background-color: #111;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.8);
+}
+#btn-up { top: 0; left: 40px; border-radius: 5px 5px 0 0; }
+#btn-down { bottom: 0; left: 40px; border-radius: 0 0 5px 5px; }
+#btn-left { top: 40px; left: 0; border-radius: 5px 0 0 5px; }
+#btn-right { top: 40px; right: 0; border-radius: 0 5px 5px 0; }
+/* Center piece of D-Pad */
+.d-pad::after {
+    content: '';
+    position: absolute;
+    top: 40px; left: 40px;
+    width: 40px; height: 40px;
+    background-color: #333;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Action Buttons */
+.action-btns {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    flex-shrink: 0;
+    margin-bottom: 20px; /* Align slightly higher than bottom edge */
+}
+.btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.action-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #8b0000; /* A/B Red */
+    border: none;
+    color: rgba(255,255,255,0.2);
+    font-weight: bold;
+    font-size: 24px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    cursor: pointer;
+    touch-action: manipulation;
+}
+.action-btn:active, .action-btn.active {
+    background-color: #600000;
+    transform: translateY(2px);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.label {
+    color: #00008b; /* Navy label text */
+    font-family: sans-serif;
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* Start/Select */
+.center-controls {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    pointer-events: none; /* Let clicks pass through if empty */
+}
+.start-select-group {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start-btn {
+    width: 70px;
+    height: 20px;
+    background-color: #333;
+    border: none;
+    border-radius: 10px;
+    color: transparent;
+    transform: rotate(-25deg);
+    cursor: pointer;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    touch-action: manipulation;
+    margin-bottom: 5px;
+}
+.start-btn:active, .start-btn.active {
+    background-color: #111;
+    transform: rotate(-25deg) translateY(1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 850px) {
+    body {
+        justify-content: flex-start; /* Start from top on mobile */
+        padding-top: 10px;
+    }
+    h1 {
+        font-size: 1.2rem;
+        margin: 10px 0;
+    }
+    #mobile-controls {
+        width: 100%;
+        border-radius: 0;
+        padding: 10px; /* Reduced padding */
+        padding-bottom: 60px; /* Extra space for start button */
+        margin-top: 10px;
+    }
+    .d-pad { 
+        width: 140px; height: 140px; 
+    }
+    .d-btn { width: 46px; height: 46px; }
+    #btn-up { left: 46px; }
+    #btn-down { left: 46px; }
+    #btn-left { top: 46px; }
+    #btn-right { top: 46px; }
+    .d-pad::after { top: 46px; left: 46px; width: 46px; height: 46px; }
+    
+    .action-btns {
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .action-btn { width: 55px; height: 55px; }
+    
+    .center-controls {
+        bottom: 10px; /* Stick to bottom */
+    }
+}
+
+/* Portfolio arcade frame; the original game and controller stay intact. */
+* { box-sizing: border-box; }
+body { background: #17141f; padding: 24px 16px 36px; justify-content: flex-start; }
+.back-link { color: #c6a0ff; align-self: flex-start; font: 14px Arial,sans-serif; margin: 0 0 20px; text-decoration: none; }
+a:focus-visible, button:focus-visible, canvas:focus-visible { outline: 3px solid #b77bff; outline-offset: 4px; }
+#game-container { width: 808px; }
+h1 { font-size: clamp(20px, 4vw, 28px); margin: 0 0 20px; }
+canvas { width: 808px; border-color: #a889e8; border-radius: 8px; }
+.desktop-instructions { color: #d2cbdf; font-size: 13px; line-height: 1.7; }
+#mobile-controls { background: #d4cee0; }
+.d-btn { color: #ddd3ef; touch-action: none; }
+.action-btn { background: #6337a9; color: white; touch-action: none; }
+.action-btn:active, .action-btn.active { background: #422470; }
+.start-btn { touch-action: none; }
+@media (max-width: 420px) { body { padding: 16px 10px 24px; } .action-btns { gap: 8px; } .action-btn { width: 50px; height: 50px; } }

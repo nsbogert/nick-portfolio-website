@@ -1,0 +1,6 @@
+Built-in imagegen edit, September 30, 2026.
+Input: public/assets/hero-collage.jpg
+Output original: design/hero-watch-original.png
+Website asset: public/assets/hero-watch.jpg
+
+Use case: precise-object-edit. Edit target: attached existing portfolio hero collage. Preserve its 4:3 landscape composition, dark near-black background, cut-paper texture, monochrome hand anatomy and pose, and paint burst. Add one clearly visible original avant-garde mechanical wristwatch worn on the wrist just below the hand, round brushed steel case, intricate exposed mechanical architecture, electric blue and neon violet details, black textured strap wrapping naturally around the wrist. Watch face oriented toward the viewer even though hand palm faces viewer, a deliberately expressive editorial styling. This is a fictional unbranded watch illustration, not a reproduction of a real model. Integrate it into the existing monochrome halftone and wheatpaste collage style. Rebalance paint colors toward luminous violet and electric cobalt with small magenta highlights, replacing the large yellow paint splash. Preserve the black-and-white hand and dramatic silhouette. No text, logos, lettering, numbers, UI or watermarks.
