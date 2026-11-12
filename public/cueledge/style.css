@@ -1,0 +1,52 @@
+/* CueLedge's support and privacy pages: unlinked from the portfolio, sharing nothing with its styles. */
+:root {
+    --bg: #ffffff;
+    --text: #1d1b26;
+    --muted: #5b5868;
+    --band: #262238;
+    --band-text: #f4f2fa;
+    --accent: #346752;
+    --rule: #e4e1ec;
+    --card: #f6f5f9;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #131119;
+        --text: #ebe9f2;
+        --muted: #a9a5b8;
+        --band: #171424;
+        --band-text: #f4f2fa;
+        --accent: #7fbf9f;
+        --rule: #2c2838;
+        --card: #1c1a25;
+    }
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+header { background: var(--band); color: var(--band-text); padding: 28px 16px; }
+header .wrap { display: flex; align-items: center; gap: 14px; }
+header img { width: 48px; height: 48px; }
+header p { margin: 0; font-size: 22px; font-weight: 700; }
+header nav { margin-left: auto; display: flex; gap: 18px; font-size: 15px; }
+header nav a { color: var(--band-text); }
+.wrap { max-width: 720px; margin: 0 auto; }
+main { padding: 32px 16px 56px; }
+h1 { font-size: 32px; line-height: 1.2; margin: 0 0 6px; }
+h2 { font-size: 21px; margin: 36px 0 8px; }
+h3 { font-size: 17px; margin: 24px 0 4px; }
+.meta { color: var(--muted); margin: 0 0 24px; }
+a { color: var(--accent); }
+.card { background: var(--card); border-radius: 12px; padding: 18px 20px; margin: 20px 0; }
+.card p { margin: 0; }
+.card p + p { margin-top: 8px; }
+li + li { margin-top: 6px; }
+footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; padding: 20px 16px 40px; }
+@media (max-width: 520px) {
+    header .wrap { flex-wrap: wrap; }
+    header nav { margin-left: 0; width: 100%; }
+}
